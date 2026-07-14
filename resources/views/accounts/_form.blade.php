@@ -30,7 +30,7 @@
     <label for="balance" class="block text-sm font-medium text-gray-700">
         {{ $account ? 'Solde actuel' : 'Solde de départ' }}
     </label>
-    <input type="number" step="0.01" name="balance" id="balance"
+    <input type="number" step="1" name="balance" id="balance"
            value="{{ old('balance', $account->balance ?? 0) }}"
            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
     @error('balance')

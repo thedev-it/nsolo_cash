@@ -3,8 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nsolo Cash</title>
+    <title>Nzolo Cash</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @if (session('success'))
+        <script>window.flashSuccess = @json(session('success'));</script>
+    @endif
+    @if (session('status'))
+        <script>window.flashStatus = @json(session('status'));</script>
+    @endif
 </head>
 <body class="font-sans antialiased bg-gray-50">
 
@@ -25,11 +32,7 @@
             </div>
 
             <div class="flex items-center gap-5">
-                <button class="relative text-gray-400 hover:text-gray-600">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                    </svg>
-                </button>
+                <x-notifications-dropdown />
 
                 <div class="flex items-center gap-3">
                     <div class="w-9 h-9 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm font-semibold">
@@ -54,5 +57,6 @@
         </main>
     </div>
 
+    @stack('scripts')
 </body>
 </html>

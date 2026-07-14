@@ -1,11 +1,16 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PasswordResetLinkController;
+use App\Http\Controllers\RecurringTransactionController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SavingsGoalController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,4 +72,15 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('accounts', AccountController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('transactions', TransactionController::class);
+    Route::resource('budgets', BudgetController::class);
+    Route::resource('recurring-transactions', RecurringTransactionController::class);
+    Route::post('/recurring-transactions/{recurringTransaction}/generate', [RecurringTransactionController::class, 'generate'])
+        ->name('recurring-transactions.generate');
+    Route::resource('saving-goals', SavingsGoalController::class);
+    Route::post('/saving-goals/{savingGoal}/contribute', [SavingsGoalController::class, 'contribute'])
+            ->name('saving-goals.contribute');
+    Route::post('/budgets/carry-over', [BudgetController::class, 'carryOver'])->name('budgets.carry-over');
+    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/download', [ReportController::class, 'download'])->name('reports.download');
 });

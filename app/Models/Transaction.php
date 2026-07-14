@@ -34,6 +34,11 @@ class Transaction extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function savingGoal(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+{
+    return $this->belongsTo(SavingsGoal::class);
+}
+
     /**
      * Montant signé : positif si revenu, négatif si dépense.
      * Utilisé pour mettre à jour le solde du compte (balance).
