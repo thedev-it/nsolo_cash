@@ -35,10 +35,14 @@ class Budget extends Model
      * Montant déjà dépensé sur ce budget (calculé depuis les transactions du mois).
      */
     public function getSpentAttribute(): float
-    {
-        return $this->category->transactions()
-            ->where('type', 'expense')
-            ->whereRaw("DATE_FORMAT(date, '%Y-%m') = ?", [$this->month])
-            ->sum('amount');
-    }
+{
+    $year = substr($this->month, 0, 4);
+    $monthNumber = substr($this->month, 5, 2);
+
+    return $this->category->transactions()
+        ->where('type', 'expense')
+        ->whereYear('date', $year)
+        ->whereMonth('date', $monthNumber)
+        ->sum('amount');
+}
 }
