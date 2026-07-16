@@ -10,7 +10,7 @@
  * Usage : php ping.php
  */
 
-$url = getenv('APP_PING_URL') ?: 'https://ton-app.onrender.com/ping';
+$url ='https://nsolo-cash.onrender.com/ping';
 
 $ch = curl_init($url);
 
