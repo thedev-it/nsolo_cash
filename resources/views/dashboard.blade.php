@@ -143,7 +143,7 @@
                             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1.5 text-xs sm:text-sm gap-0.5 sm:gap-0">
                                 <span class="font-medium text-gray-800">{{ $budget->category->name }}</span>
                                 <span class="{{ $isOver ? 'text-red-600 font-semibold' : 'text-gray-500' }}">
-                                    {{ number_format($budget->spent, 2) }} € / {{ number_format($budget->amount_limit, 2) }} €
+                                    {{ number_format($budget->spent, 2) }} FCFA / {{ number_format($budget->amount_limit, 2) }} FCFA
                                 </span>
                             </div>
                             <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -176,7 +176,7 @@
                                 <p class="text-[10px] sm:text-xs text-gray-400 capitalize">{{ $account->type }}</p>
                             </div>
                             <span class="text-xs sm:text-sm font-semibold {{ $account->balance >= 0 ? 'text-gray-900' : 'text-red-500' }}">
-                                {{ number_format($account->balance, 2) }} €
+                                {{ number_format($account->balance, 2) }} FCFA
                             </span>
                         </li>
                     @endforeach

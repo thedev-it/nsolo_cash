@@ -18,7 +18,7 @@ class TransactionController extends Controller
             ->with(['account', 'category'])
             ->latest('date')
             ->latest('id')
-            ->paginate(20);
+            ->paginate(5);
 
         return view('transactions.index', compact('transactions'));
     }

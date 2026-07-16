@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex flex-col sm:flex-row sm:justify-end sm:items-center gap-4">
             <a href="{{ route('transactions.create') }}"
-               class="inline-flex items-center justify-center px-4 py-2 bg-indigo-600 text-white text-xs font-semibold uppercase tracking-widest rounded-md hover:bg-indigo-700 w-full sm:w-auto text-center">
+               class="inline-flex items-center justify-center px-4 py-2 bg-indigo-600 text-white text-xs font-semibold   rounded-md hover:bg-indigo-700 w-full sm:w-auto text-center">
                 + Nouvelle transaction
             </a>
         </div>
